@@ -1,1 +1,1 @@
-worker: babel-node index.js --presets latest
+worker: node index.js
