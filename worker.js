@@ -1,7 +1,7 @@
 import { Builder, By, Key, until } from 'selenium-webdriver';
 import { assert } from 'assert';
 
-(async function example() {
+const runDriverAndTest = async() => {
   let driver = await new Builder().forBrowser('chrome').build();
   try {
     await driver.get('http://www.google.com/ncr');
@@ -16,4 +16,9 @@ import { assert } from 'assert';
     await driver.quit();
     console.log('Driver shutdown');
   }
-})();
+};
+
+export default runDriverAndTest;
+// (async function example() {
+// 
+// })();
