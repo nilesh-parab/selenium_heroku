@@ -6,7 +6,7 @@
   "scripts": {
     "start": "babel-node index.js --presets latest",
     "test": "echo \"Error: no test specified\" && exit 1",
-	"start-local": "node index.js"
+    "start-local": "node index.js"
   },
   "author": "",
   "license": "ISC",

@@ -1,1 +1,1 @@
-worker: babel-node index.js --presets latest
+clock: npm run start
