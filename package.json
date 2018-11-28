@@ -1,0 +1,22 @@
+{
+  "name": "smilo-monitor",
+  "version": "1.0.0",
+  "description": "Monitor using selenium webdriver",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node index.js --presets latest",
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start-local": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
+    "selenium-webdriver": "^4.0.0-alpha.1"
+  },
+  "engines": {
+    "node": "6.10.3",
+    "npm": "4.5.0"
+  }
+}
