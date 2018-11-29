@@ -1,8 +1,8 @@
 import { CronJob } from 'cron';
-import runDriverAndTest from './worker';
+import { publishJob } from './pubSubMethods'; 
+import { MONITOR_JOB_NAME } from './constants';
 
-new CronJob('*/2 * * * *', runDriverAndTest, cronCompleted, true);
+// TODO: patterns can be configurable
+const monitoringJob = new CronJob('*/1 * * * *', () => publishJob(MONITOR_JOB_NAME, Date.now()), null, true);
 
-const cronCompleted = () => {
-  console.log('You will see this message every second');
-};
+monitoringJob.start();
