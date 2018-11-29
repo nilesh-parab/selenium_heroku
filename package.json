@@ -3,16 +3,14 @@
   "version": "1.0.0",
   "description": "Monitor using selenium webdriver",
   "main": "index.js",
-  "scripts": {
-    "start": "babel-node index.js --presets latest",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start-local": "node index.js"
-  },
+  "scripts": {},
   "author": "",
   "license": "ISC",
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-latest": "^6.24.1",
+    "cron": "^1.5.0",
+    "ioredis": "^4.2.0",
     "selenium-webdriver": "^4.0.0-alpha.1"
   }
 }
