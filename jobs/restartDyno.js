@@ -1,7 +1,10 @@
 import Heroku from 'heroku-client';
+import { SETTINGS } from '../constants';
 
-const apiToken = (process.env.settings && process.env.settings.HEROKU_API_TOKEN) || process.env.HEROKU_API_TOKEN;
-const restartEnabled = (process.env.settings && process.env.settings.cron.restartDyno.enable) || true;
+const apiToken = (SETTINGS && SETTINGS.HEROKU_API_TOKEN) || process.env.HEROKU_API_TOKEN;
+const restartEnabled = (SETTINGS && SETTINGS.cron.restartDyno.enable) || true;
+// Application name or id
+const appName = (SETTINGS && SETTINGS.cron.restartDyno.APP_NAME) || process.env.APP_NAME;
 
 if (restartEnabled && !apiToken) {
   throw 'apiToken not provided';
@@ -10,8 +13,6 @@ if (restartEnabled && !apiToken) {
 const restartDyno = () => {
   if (restartEnabled) {
     const heroku = new Heroku({ token: apiToken });
-    // Application name or id
-    const appName = (process.env.settings && process.env.settings.cron.APP_NAME) || process.env.APP_NAME;
     heroku.delete(`/apps/${appName}/dynos`).then(app => {
         console.log(`Dyno for ${appName} restarted`);
     }).catch((err) => {
