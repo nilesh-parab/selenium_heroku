@@ -4,12 +4,13 @@
   "description": "Monitor using selenium webdriver",
   "main": "index.js",
   "scripts": {},
-  "author": "",
+  "author": "Nilesh",
   "license": "ISC",
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-latest": "^6.24.1",
     "cron": "^1.5.0",
+    "heroku-client": "^3.0.6",
     "ioredis": "^4.2.0",
     "selenium-webdriver": "^4.0.0-alpha.1"
   }
