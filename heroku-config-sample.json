@@ -1,0 +1,14 @@
+"settings": {
+	"cron": {
+    "restartDyno": {
+  		"enable": true,
+  		"schedule": "*/1 * * * *",
+		"APP_NAME": ""
+  	},
+    "monitoring": {
+  		"enable": true,
+  		"schedule": "*/1 * * * *"
+  	}
+  },
+	"HEROKU_API_TOKEN": ""
+}

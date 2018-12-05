@@ -1,11 +1,11 @@
 import Redis from 'ioredis';
 // TODO: get all channels
-import { MONITOR_JOB_NAME, REDIS_URL } from './constants';
+import { MONITOR_JOB_NAME, REDIS_URL, RESTART_DYNO } from './constants';
 import runDriverAndTest from './jobs/siteMonitorJob';
+import restartDyno from './jobs/restartDyno';
 
 const publishJob = (jobName, publishTime) => {
   try {
-    // TODO: configurable via env
     const publisher = new Redis(REDIS_URL);
     console.log(`jobPublisher - Publising a job ${jobName} at time ${new Date(publishTime)}`);
     publisher.publish(jobName, publishTime);
@@ -16,9 +16,13 @@ const publishJob = (jobName, publishTime) => {
 }
 
 const jobDispatcher = (channel, message) => {
-  switch(channel) {
+  switch (channel) {
     case MONITOR_JOB_NAME:
       runDriverAndTest();
+      break;
+    case RESTART_DYNO:
+      restartDyno();
+      break;
     default:
       console.warn(`jobSubscriber - unknown channel ${channel}`);
   }
