@@ -2,7 +2,7 @@ import Heroku from 'heroku-client';
 import { SETTINGS } from '../constants';
 
 const apiToken = (SETTINGS && SETTINGS.HEROKU_API_TOKEN) || process.env.HEROKU_API_TOKEN;
-const restartEnabled = (SETTINGS && SETTINGS.cron.restartDyno.enable) || true;
+const restartEnabled = SETTINGS ? SETTINGS.cron.restartDyno.enable : process.env.RESTART_DYNO_ENABLE === 'true';
 // Application name or id
 const appName = (SETTINGS && SETTINGS.cron.restartDyno.APP_NAME) || process.env.APP_NAME;
 

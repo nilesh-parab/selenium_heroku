@@ -1,7 +1,13 @@
 import { Builder, By, Key, until } from 'selenium-webdriver';
 import { assert } from 'assert';
+import { SETTINGS } from '../constants';
+
+const monitorEnabled = SETTINGS ? SETTINGS.cron.monitoring.enable : process.env.MONITORING_ENABLE === 'true';
 
 const runDriverAndTest = async() => {
+  if(!monitorEnabled) {
+    return;
+  }
   let driver = await new Builder().forBrowser('chrome').build();
   try {
     await driver.get('http://www.google.com/ncr');
