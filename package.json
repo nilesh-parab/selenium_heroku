@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Monitor using selenium webdriver",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start-all": "babel-node clock.js --presets latest | babel-node worker.js --presets latest"
+  },
   "author": "Nilesh",
   "license": "ISC",
   "dependencies": {
