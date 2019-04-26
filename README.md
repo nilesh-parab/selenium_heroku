@@ -1,5 +1,5 @@
 # selenium_heroku
-selenium_heroku is job scheduler for Node.js. It allows you to schedule jobs (arbitrary functions) for execution at specific dates, time, every minute. You can schedule more the one task, in clock.js file to execute and worker.js will be listening to the redis and once the job is dispatched worker will publish the requested job. clock and worker file will be connected through redis.
+This sample app is job scheduler for Node.js with webdriver deployed on Heroku platform. It allows you to schedule jobs (arbitrary functions) for execution at specific dates, time, every minute. You can schedule more than one task, in clock.js file to execute and worker.js will be listening to the redis and once the job is dispatched worker will publish the requested job. Clock and worker file are connected through redis.
 
 ## Project Structure
 
@@ -9,7 +9,7 @@ selenium_heroku is job scheduler for Node.js. It allows you to schedule jobs (ar
  
 #### Procfile 
  
-Mechanism for declaring Heroku process types & entry points run by your application.
+Mechanism for declaring Heroku process types & entry points for your application.
  
 #### clock.js
 
